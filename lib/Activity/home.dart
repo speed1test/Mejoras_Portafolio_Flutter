@@ -9,7 +9,6 @@ _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  TextEditingController searchController = new TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -32,12 +31,12 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top:100.0, left: 20),
+        padding: EdgeInsets.only(top:100.0, left: 20),
         child: Column(
           children: <Widget>[
-            Padding(
+            const Padding(
               //Para customizar que lo quiero a la derecha
               // padding: const EdgeInsets.only(right:10),
               //Para customizar la altura
@@ -48,7 +47,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Row(
+            const Row(
               children: [
                 CircleAvatar(
                   radius: 60,
@@ -64,9 +63,9 @@ class _HomeState extends State<Home> {
                 )
               ],
             ),
-            SizedBox(height: 10,),
-            Padding(
-              padding: const EdgeInsets.only(left:30),
+            const SizedBox(height: 10,),
+            const Padding(
+              padding: EdgeInsets.only(left:30),
               child: Column(
                 children: <Widget>[
                   Row(
@@ -107,14 +106,27 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Padding(
+            const Padding(
               //padding: EdgeInsets.symmetric(vertical: 15.0),
               padding: EdgeInsets.all(20.0),
               child: Text("Acerca de mi fsfsdsdssdddddsdsdsfsfsddsdsdsdsdsdsdsdsdsd", style: TextStyle(fontSize: 22),),
               //child: Text("Creado por: Edwin"),
             ),
-            SizedBox(height: 160,),
             Padding(
+              padding: EdgeInsets.all(20.0),
+              child: ElevatedButton(
+                child: const Text("Dame clic"),
+                onPressed: () {
+                  const snackBar = SnackBar(
+                    content: Text('Funcionamiento correcto ❤️'),
+                    duration: Duration(seconds: 3),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              ),
+            ),
+            const SizedBox(height: 60,),
+            const Padding(
               padding: EdgeInsets.all(20.0),
               child: Text("Creado por: Edwin"),
             ),
